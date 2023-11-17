@@ -99,6 +99,7 @@ jobs:
         if: matrix.os == 'windows'
         run: |
           vcpkg install openssl:x64-windows-static
+          vcpkg install protobuf protobuf:x64-windows
           vcpkg integrate install
           cargo build --bin ya-relay-server -p ya-relay-server --release 
 
