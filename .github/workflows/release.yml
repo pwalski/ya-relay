@@ -98,8 +98,10 @@ jobs:
       - name: Build windows
         if: matrix.os == 'windows'
         run: |
+          Invoke-WebRequest https://github.com/protocolbuffers/protobuf/releases/download/v25.1/protoc-25.1-win64.zip -o protoc.zip
+          Expand-Archive -Path protoc.zip -DestinationPath protoc
+          $env:PATH="$env:PATH;$MyInvocation.MyCommand.Path\protoc\bin;"
           vcpkg install openssl:x64-windows-static
-          vcpkg install protobuf protobuf:x64-windows
           vcpkg integrate install
           cargo build --bin ya-relay-server -p ya-relay-server --release 
 
