@@ -47,7 +47,7 @@ jobs:
     needs: create-release
     runs-on: ${{ matrix.os }}-latest
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         os:
           - ubuntu
@@ -135,7 +135,7 @@ jobs:
           asset_content_type: application/octet-stream
 
   build-deb:
-    needs: create-release
+    needs: build
     runs-on: ubuntu-22.04
     steps:
       - name: Get upload url
