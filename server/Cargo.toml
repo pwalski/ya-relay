@@ -61,3 +61,5 @@ test-log = "0.2.13"
 test-utils = ["ya-relay-core/test-utils"]
 small = ["log/max_level_info"]
 
+[build-dependencies]
+static_vcruntime = "2.0"
