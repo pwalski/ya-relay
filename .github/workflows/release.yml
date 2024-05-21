@@ -4,6 +4,8 @@ on:
     tags:
       - v*
       - pre-rel-*
+env:
+  rust_stable: 1.78.0
 
 jobs:
   create-release:
@@ -86,12 +88,12 @@ jobs:
       - uses: actions-rs/toolchain@v1
         if: matrix.os == 'windows'
         with:
-          toolchain: 1.71.1
+          toolchain: ${{ env.rust_stable }}
 
       - uses: actions-rs/toolchain@v1
         if: matrix.os == 'ubuntu'
         with:
-          toolchain: 1.71.1
+          toolchain: ${{ env.rust_stable }}
           target: x86_64-unknown-linux-musl
           override: true
 
