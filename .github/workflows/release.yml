@@ -100,7 +100,7 @@ jobs:
       - name: Build windows
         if: matrix.os == 'windows'
         run: |
-          Invoke-WebRequest https://github.com/protocolbuffers/protobuf/releases/download/v25.1/protoc-25.1-win64.zip -o protoc.zip
+          Invoke-WebRequest https://github.com/protocolbuffers/protobuf/releases/download/v25.1/protoc-25.1-win64.zip -OutFile protoc.zip
           Expand-Archive -Path protoc.zip -DestinationPath protoc
           $env:PATH="$env:PATH;$(Get-Location)\protoc\bin;"
           vcpkg install openssl:x64-windows-static
