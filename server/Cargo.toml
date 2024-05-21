@@ -7,6 +7,8 @@ description = "Node discovery server for forwarding data between Golem network n
 license = "LGPL-3.0"
 repository = "https://github.com/golemfactory/ya-relay"
 
+build = "../build.rs"
+
 [dependencies]
 ya-relay-proto = { workspace = true }
 ya-relay-core = { workspace = true }
